@@ -45,7 +45,7 @@ def solve(expression: str):
                    precedence[operators[-1]] >= precedence[char]):
                 apply_op(operators, values)
             operators.append(char)
-
+            
         i += 1
 
     while operators:
