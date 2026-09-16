@@ -5,9 +5,12 @@ medicines = [
     ("Зіпсований запис", 67, "vitamin", 15.0),
 ]
 
+result = []
+
 for name, quantity, category, temp in medicines:
-    if not isinstance(quantity, (int)) or not isinstance(temp, (float)):
-        print('Введено неправильний тип даних')
+    if not isinstance(quantity, int) or not isinstance(temp, (int, float)):
+        print(f"Помилка: неправильний тип даних для '{name}'")
+        continue
 
     if temp < 5:
         temp_stat = "занадто холодно"
@@ -26,4 +29,6 @@ for name, quantity, category, temp in medicines:
         case _:
             cat_status = "Невідома категорія"
 
-print(f"Назва:{name}, Категорія:{cat_status}, Температурні умови:{temp_stat}")
+    result.append(f"Назва: {name} | Категорія: {cat_status} | Температурні умови: {temp_stat} ({temp}°C) | Кількість: {quantity}")
+
+print(*result, sep="\n")
