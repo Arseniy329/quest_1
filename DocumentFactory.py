@@ -37,3 +37,4 @@ if __name__ == "__main__":
     for doc_type in input_types:
         document = DocumentFactory.create(doc_type)
         print(document.render())
+        
